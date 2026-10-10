@@ -19,7 +19,7 @@
 @font-face{font-family:Saudi;src:url(/fonts/Saudi-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
 @font-face{font-family:Saudi;src:url(/fonts/Saudi-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
 :root{color-scheme:light dark;--paper:#EEE7DD;--card:#F7F2EA;--line:#D8CCBB;--ink:#362108;--sub:#5A4630;--mute:#7A6449;--accent:#AE6141;--deep:#8E4527;--link:#8E4527;--cream:#F7F2EA;
---ease-out:cubic-bezier(.23,1,.32,1);--gut:clamp(20px,5vw,56px);--gap:clamp(72px,11vw,136px)}
+--ease-out:cubic-bezier(.23,1,.32,1);--ease-in-out:cubic-bezier(.77,0,.175,1);--gut:clamp(20px,5vw,56px);--gap:clamp(72px,11vw,136px)}
 @media (prefers-color-scheme:dark){:root{--paper:#1C1712;--card:#28211A;--line:#40362C;--ink:#EEE7DD;--sub:#C9B9A3;--mute:#9A8670;--link:#D08A5C}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scrollbar-color:var(--line) var(--paper)}
@@ -83,6 +83,13 @@ section{margin-top:var(--gap)}
 .more dt{font-weight:700;font-size:1.1875rem;line-height:1.6}
 .more dd{margin:2px 0 0;color:var(--sub)}
 .more .trial{grid-column:2;color:var(--mute);font-size:.9375rem;max-width:40rem;padding-top:22px;border-top:1px solid var(--line)}
+.lines{display:grid}
+.lines p{grid-area:1/1;opacity:0;transition:opacity .7s var(--ease-out),transform .7s var(--ease-out),filter .7s var(--ease-out)}
+.lines p.on{opacity:1}
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-block:.3em;margin-block:-.3em}
+.w>span{display:inline-block}
+.burst{position:absolute;inset:0;pointer-events:none}
+.burst i{position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:var(--accent);opacity:0}
 .line p{font-weight:700;font-size:clamp(2rem,6.4vw,4.25rem);line-height:1.3;max-width:16em;text-wrap:balance}
 .data{max-width:34rem;margin-inline-start:auto}
 .data p{margin-top:12px;color:var(--sub)}
@@ -125,11 +132,35 @@ footer a{color:var(--sub);text-decoration:none;padding:6px 0}
 @media (max-width:460px){.more dl{grid-template-columns:1fr;gap:22px}}
 @media (prefers-reduced-motion:no-preference){
   .rise{animation:rise .7s var(--ease-out) both;animation-delay:calc(var(--i,0)*60ms)}
-  .big .halo{animation:breathe 2.8s ease-in-out infinite alternate}
+  .w>span{animation:up .9s var(--ease-out) both;animation-delay:calc(var(--i,0)*110ms)}
+  .try[data-s="2"] .task .mk2{animation:pop .42s var(--ease-out)}
+  .try[data-s="2"] .burst i{animation:burst .65s var(--ease-out)}
+  .lines p{transform:translateY(.45em);filter:blur(10px)}
+  .lines p.on{transform:none;filter:none}
+  .lines p.off{transform:translateY(-.45em)}
+  .js .more h2,.js .more .trial,.js .more dl>div,.js .data>*{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);transition-delay:calc(var(--n,0)*80ms)}
+  .js .in.more h2,.js .in.more .trial,.js .in.more dl>div,.js .in.data>*{opacity:1;transform:none}
+  .js .line .lines{opacity:0;transition:opacity 1s var(--ease-out)}
+  .js .in.line .lines{opacity:1}
+  .js .end:not(.in) .big svg>*,.js .end:not(.in) .pill,.js .end:not(.in) .follow{opacity:0}
+  .js .end.in .big svg>*{animation:fade .5s var(--ease-out) both;animation-delay:calc(var(--k)*80ms)}
+  .end .big svg>:nth-child(2){--k:0}.end .big svg>:nth-child(3){--k:5}.end .big svg>:nth-child(4){--k:6}.end .big svg>:nth-child(5){--k:7}.end .big svg>:nth-child(6){--k:8}.end .big svg>:nth-child(7),.end .big svg>:nth-child(8){--k:9}.end .big svg>:nth-child(9){--k:10}.end .big svg>:nth-child(10),.end .big svg>:nth-child(11){--k:11}
+  .js .end .big svg>:nth-child(12){stroke-dasharray:420;stroke-dashoffset:420}
+  .js .end.in .big svg>:nth-child(12){animation:draw 1.1s var(--ease-in-out) 1s both}
+  .js .end.in .big svg>:nth-child(15),.js .end.in .big svg>:nth-child(16){transform-box:fill-box;transform-origin:center;animation:pop .5s var(--ease-out) 2.1s both}
+  .js .end.in .big svg>:nth-child(16){animation-delay:2.25s}
+  .js .end.in .big .halo{animation:fade .9s ease 2.5s both,breathe 2.8s ease-in-out 3.4s infinite alternate}
+  .js .end.in .pill,.js .end.in .follow{animation:rise .7s var(--ease-out) 2.7s both}
+  .js .end.in .follow{animation-delay:2.85s}
 }
 @media (prefers-reduced-motion:reduce){.stack svg,.num i,.task,.later,.mail{transform:none!important}}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}}
 @keyframes breathe{from{opacity:.5}}
+@keyframes up{from{transform:translateY(115%)}}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{0%{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.14)}}
+@keyframes draw{from{opacity:1;stroke-dashoffset:420}to{opacity:1;stroke-dashoffset:0}}
+@keyframes burst{0%{opacity:1;transform:none}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.4)}}
 </style>
 </head>
 <body>
