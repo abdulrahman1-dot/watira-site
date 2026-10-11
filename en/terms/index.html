@@ -250,8 +250,11 @@ footer{padding-bottom:84px}
 .card{--paper:#1C1712;--line:#40362C;--ink:#EEE7DD}
 /* a phone's home screen with the widgets on it, running off the bottom of its tile like the phone above */
 .hs{flex:none;display:flex;flex-direction:column;gap:12px;width:270px;height:404px;padding:11px 14px 0;overflow:hidden;text-align:start;color:#EEE7DD;border:7px solid #0B0907;border-bottom:0;border-radius:38px 38px 0 0;box-shadow:0 0 0 1px #5E5145,0 -24px 50px -34px rgba(0,0,0,.7);background:radial-gradient(150% 90% at 18% 0%,#B8683F 0%,#6E3C23 36%,#2B1B11 76%,#1C1712 100%);--paper:#241C16;--line:#4D4034;--ink:#EEE7DD}
+.hs{position:relative}
+.hs>*{position:relative}
+.hs .orn{position:absolute;inset:0;width:100%;height:100%;opacity:.62;pointer-events:none}
 .hs .isl{align-self:center;flex:none;width:76px;height:21px;border-radius:12px;background:#000}
-.wd{padding:12px 13px;border-radius:22px;background:rgba(30,24,19,.88);border:1px solid rgba(255,255,255,.08);box-shadow:0 12px 22px -14px #000}
+.wd{padding:12px 13px;border-radius:22px;background:rgba(30,24,19,.95);border:1px solid rgba(255,255,255,.08);box-shadow:0 12px 22px -14px #000}
 .wd.m{display:grid;gap:6px}
 .wd .hd{display:flex;align-items:center;justify-content:space-between}
 .wd .hd b{font-size:.82rem;line-height:1.4}
@@ -287,6 +290,7 @@ footer{padding-bottom:84px}
   .sky span{animation:pop .7s var(--ease-out) both;animation-delay:calc(var(--i)*70ms + .2s)}
   .sky svg{animation:drift var(--d) ease-in-out infinite alternate}
   .js .in.more .hs .wd{animation:land .8s var(--ease-out) both;animation-delay:calc(.5s + var(--w,0)*.14s)}
+  .hs .orn{animation:drift 9s ease-in-out infinite alternate}
   .hs .two .wd:first-child{--w:1}
   .hs .two .wd+.wd{--w:2}
   .three span,.rw{animation:turn 3.6s var(--ease-in-out) infinite;animation-delay:calc(var(--n)*1.2s)}
