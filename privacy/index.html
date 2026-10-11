@@ -140,7 +140,7 @@ footer a{color:var(--sub);text-decoration:none;padding:6px 0}
   .try .row{flex-wrap:wrap;padding-inline-end:8px}
   .later{margin-inline-start:auto}
 }
-@media (max-width:560px){.t-states .three{display:none}.wd.m{width:100%}.wd.s{width:100%;height:auto;gap:8px}}
+@media (max-width:560px){.t-states .three{display:none}}
 @media (prefers-reduced-motion:no-preference){
   .rise{animation:rise .7s var(--ease-out) both;animation-delay:calc(var(--i,0)*60ms)}
   .w>span{animation:up .9s var(--ease-out) both;animation-delay:calc(var(--i,0)*110ms)}
@@ -245,27 +245,38 @@ footer{padding-bottom:84px}
 .phone .tabs span:first-child{background:var(--paper);color:var(--ink);font-weight:700}
 .rw{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:13px;background:var(--card);border:1px solid var(--line);font-size:.74rem;line-height:1.5;font-weight:700}
 .rw svg{flex:none;width:22px;height:22px}
-.t-widgets{grid-column:span 6;flex-direction:row;align-items:center;gap:clamp(22px,5vw,72px);min-height:0;padding:clamp(22px,4vw,44px)}
-.t-widgets .txt{flex:1}
+.t-widgets{grid-column:span 6;flex-direction:row;align-items:flex-end;justify-content:space-between;padding-bottom:0!important;gap:clamp(22px,5vw,72px);min-height:0;padding:clamp(22px,4vw,44px)}
+.t-widgets .txt{flex:1;align-self:center;padding-bottom:clamp(22px,4vw,44px)}
+.card{--paper:#1C1712;--line:#40362C;--ink:#EEE7DD}
+/* a phone's home screen with the widgets on it, running off the bottom of its tile like the phone above */
+.hs{flex:none;display:flex;flex-direction:column;gap:12px;width:270px;height:404px;padding:11px 14px 0;overflow:hidden;text-align:start;color:#EEE7DD;border:7px solid #0B0907;border-bottom:0;border-radius:38px 38px 0 0;box-shadow:0 0 0 1px #5E5145,0 -24px 50px -34px rgba(0,0,0,.7);background:radial-gradient(150% 90% at 18% 0%,#B8683F 0%,#6E3C23 36%,#2B1B11 76%,#1C1712 100%);--paper:#241C16;--line:#4D4034;--ink:#EEE7DD}
+.hs .isl{align-self:center;flex:none;width:76px;height:21px;border-radius:12px;background:#000}
+.wd{padding:12px 13px;border-radius:22px;background:rgba(30,24,19,.88);border:1px solid rgba(255,255,255,.08);box-shadow:0 12px 22px -14px #000}
+.wd.m{display:grid;gap:6px}
+.wd .hd{display:flex;align-items:center;justify-content:space-between}
+.wd .hd b{font-size:.82rem;line-height:1.4}
+.wd .hd .ring{width:26px;height:26px}
+.wd .r{display:flex;align-items:center;gap:8px;font-size:.72rem;line-height:1.5;font-weight:700}
+.wd .r svg{flex:none;width:16px;height:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.wd.s{display:grid;align-content:space-between;justify-items:start;aspect-ratio:1}
+.wd .n{font-size:2.3rem;line-height:1;color:#D08A5C}
+.wd small{font-size:.64rem;line-height:1.4;color:#C9B9A3}
+.wd ol{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.wd li{width:11px;height:11px}
+.wd li svg{width:100%;height:100%}
+.wd.c{align-content:center;justify-items:center;gap:6px}
+.wd.c .ring{width:64px;height:64px}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);justify-items:center}
+.apps span{display:grid;justify-items:center;gap:3px}
+.apps i,.apps img{display:block;width:44px;height:44px;border-radius:11px;background:rgba(255,255,255,.14)}
+.apps small{font-size:.56rem;line-height:1.5;color:#EEE7DD}
 .t-widgets h3{font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.4}
 .tag{display:inline-block;margin-bottom:10px;padding:1px 13px;border-radius:999px;border:1px solid var(--line);color:var(--link);font-size:.8rem;font-weight:700}
-.wall{flex:none;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:24px;border-radius:28px;background:radial-gradient(130% 130% at 15% 0%,#8E4527 0%,#3A2416 55%,#1C1712 100%)}
-.wd,.card{--paper:#1C1712;--line:#40362C;--ink:#EEE7DD}
-.wd{display:grid;align-content:space-between;gap:5px;height:140px;padding:14px;border-radius:26px;background:rgba(28,23,18,.9);color:#EEE7DD;text-align:start;box-shadow:0 14px 26px -16px #000}
-.wd.s{width:140px}
-.wd.m{width:280px}
-.wd small{font-size:.7rem;line-height:1.4;color:#C9B9A3}
-.wd b{font-size:2.5rem;line-height:1;color:#D08A5C}
-.wd ol{display:flex;gap:5px;list-style:none;margin:0;padding:0}
-.wd li{width:15px;height:15px}
-.wd li svg,.wd .r svg{width:100%;height:100%}
-.wd .hd{display:flex;align-items:center;justify-content:space-between}
-.wd .hd .ring{width:30px;height:30px}
-.wd .r{display:flex;align-items:center;gap:8px;font-size:.74rem;line-height:1.4;font-weight:700}
-.wd .r svg{flex:none;width:17px;height:17px}
 @media (max-width:860px){
   .t-widgets{flex-direction:column;align-items:stretch;text-align:start}
-  .wall{padding:18px}
+  .t-widgets .txt{align-self:stretch;padding-bottom:0}
+  .hs{align-self:center}
   .tile,.t-states{grid-column:span 6;min-height:0}
   .sky span:nth-child(5n+4),.sky span:nth-child(5n+5){display:none}
   .sky span{width:calc(var(--s)*.62);height:calc(var(--s)*.62);opacity:.85}
@@ -275,9 +286,10 @@ footer{padding-bottom:84px}
 @media (prefers-reduced-motion:no-preference){
   .sky span{animation:pop .7s var(--ease-out) both;animation-delay:calc(var(--i)*70ms + .2s)}
   .sky svg{animation:drift var(--d) ease-in-out infinite alternate}
+  .js .in.more .hs .wd{animation:land .8s var(--ease-out) both;animation-delay:calc(.5s + var(--w,0)*.14s)}
+  .hs .two .wd:first-child{--w:1}
+  .hs .two .wd+.wd{--w:2}
   .three span,.rw{animation:turn 3.6s var(--ease-in-out) infinite;animation-delay:calc(var(--n)*1.2s)}
-  .wd.s{animation:drift 6s ease-in-out infinite alternate}
-  .wd.m{animation:drift 7s ease-in-out -2s infinite alternate-reverse}
   .keep .swap svg+svg{opacity:0;animation:swap 4s ease-in-out infinite}
   .keep .swap svg:first-child{animation:swap 4s ease-in-out infinite reverse}
   .note{animation:drop 5s var(--ease-out) infinite}
@@ -295,6 +307,7 @@ footer{padding-bottom:84px}
 @keyframes swap{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
 @keyframes drop{0%{opacity:0;transform:translateY(-70px)}12%,78%{opacity:1;transform:none}90%,100%{opacity:0;transform:translateY(-16px)}}
 @keyframes sway{from{rotate:-7deg;translate:0 4px}to{rotate:-3deg;translate:0 -6px}}
+@keyframes land{from{opacity:0;transform:translateY(-18px) scale(.94)}}
 @keyframes grow{from{transform:scaleY(.35)}}
 </style>
 </head>
