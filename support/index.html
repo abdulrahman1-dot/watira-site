@@ -186,6 +186,23 @@ html,body{overflow-x:clip}
 .story p{font-weight:700;font-size:clamp(1.9rem,5.8vw,4rem);line-height:1.45;max-width:19em;margin-inline:auto;text-align:center;text-wrap:balance}
 .more{display:block}
 .more h2{text-align:center;font-size:clamp(1.9rem,5vw,3.25rem);margin-bottom:clamp(28px,5vw,52px)}
+.duo h2{text-align:center;font-size:clamp(1.9rem,5vw,3.25rem);margin-bottom:clamp(28px,5vw,52px)}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.feat{display:flex;flex-direction:column;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:28px}
+.feat .txt{padding:26px 28px 6px}
+.feat h3{font-size:clamp(1.4rem,2.6vw,1.75rem);line-height:1.45}
+.feat p{color:var(--sub);margin-top:6px;max-width:30em}
+.feat ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:16px 0 0;padding:0}
+.feat li{padding:4px 14px;border-radius:999px;border:1px solid var(--line);color:var(--sub);font-size:.875rem;line-height:1.7}
+.feat .shots{position:relative;display:flex;justify-content:center;margin-top:auto;padding:30px 28px 0;height:clamp(300px,34vw,420px);overflow:hidden}
+.ph{margin:0;width:min(62%,250px);border:7px solid #0B0907;border-bottom:0;border-radius:38px 38px 0 0;overflow:hidden;background:#0B0907;box-shadow:0 24px 60px rgba(54,33,8,.22);align-self:flex-start;transition:transform .5s var(--ease-out)}
+.ph img{display:block;width:100%;height:auto;border-radius:31px 31px 0 0}
+.two .ph{position:relative;z-index:1;margin-inline-end:-18%;transform:translateY(0)}
+.two .ph.back{z-index:0;margin:46px 0 0;margin-inline-end:0;transform:rotate(4deg)}
+[dir=rtl] .two .ph.back{transform:rotate(-4deg)}
+@media (hover:hover){.feat:hover .ph{transform:translateY(-8px)}.feat:hover .ph.back{transform:rotate(-4deg) translateY(-14px)}}
+@media (max-width:760px){.pair{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){.ph{transition:none}}
 .bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
 .tile{grid-column:span 2;display:flex;flex-direction:column;gap:4px;overflow:hidden;min-height:320px;padding:22px 24px 26px;background:var(--card);border:1px solid var(--line);border-radius:28px}
 .t-states{grid-column:span 4}
@@ -369,6 +386,7 @@ footer{padding-bottom:84px}
   <h2>كيف ألغي اشتراكي؟</h2><p>من الآيفون: الإعدادات، ثم اسمك، ثم الاشتراكات، ثم وتيرة، ثم إلغاء الاشتراك. تبقى المزايا حتى نهاية الفترة المدفوعة</p>
   <h2>كيف أسترد مبلغاً دفعته؟</h2><p>الاسترداد يتم عبر Apple من الموقع reportaproblem.apple.com ويخضع لسياستها</p>
   <h2>نسيت كلمة المرور</h2><p>في شاشة تسجيل الدخول اختر «نسيت كلمة المرور»، ويوصلك رمز على بريدك</p>
+  <h2>كيف أدعو أحد لمساحة؟</h2><p>افتح المساحة واضغط «ادعُ أحد للمساحة»، وأرسل له الرابط. لما يفتحه وعنده وتيرة ينضم على طول</p>
   <h2>هل تنتقل مهامي لجهاز جديد؟</h2><p>نعم، مع وتيرة برو أو خلال أسبوع التجربة. سجّل دخولك بنفس الحساب على الجهاز الجديد وتتزامن مهامك</p>
 </main>
 <footer>
