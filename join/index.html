@@ -46,7 +46,7 @@ header nav{display:flex;align-items:center;gap:22px}
 :root[data-theme=dark] .mode .sun{display:block}
 :root[data-theme=dark] .mode .moon{display:none}
 header nav a{color:var(--sub);text-decoration:none;font-size:.9375rem;padding:8px 0}
-.pill{display:inline-block;padding:10px 24px;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:700;font-size:1rem;line-height:1.6}
+.pill{text-decoration:none;display:inline-block;padding:10px 24px;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:700;font-size:1rem;line-height:1.6}
 .follow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;color:var(--mute);font-size:.9375rem}
 .follow a{padding:6px 0}
 
@@ -237,7 +237,7 @@ html,body{overflow-x:clip}
 .more .trial{max-width:none;text-align:center;border:0;padding-top:28px}
 .dock{position:fixed;inset-inline:0;bottom:16px;z-index:5;display:flex;justify-content:center;pointer-events:none;opacity:0;transition:opacity .4s ease}
 body:has(.story.in) .dock{opacity:1}
-.dock span{display:flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.9rem;font-weight:700;box-shadow:0 12px 30px -14px rgba(0,0,0,.55)}
+.dock a{pointer-events:auto;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.9rem;font-weight:700;box-shadow:0 12px 30px -14px rgba(0,0,0,.55)}
 .dock i{width:9px;height:9px;border-radius:50%;background:var(--accent)}
 body:has(.end.in) .dock{opacity:0}
 footer{padding-bottom:84px}
@@ -385,7 +385,8 @@ footer{padding-bottom:84px}
   <p id="bad" hidden>الرابط ناقص. اطلب من اللي دعاك يرسله مرة ثانية</p>
   <a class="mail" id="open" href="watira://join">افتح الدعوة في وتيرة</a>
   <h2>ما عندك وتيرة؟</h2>
-  <p>وتيرة ينزل قريباً على App Store. لما تحمّله، افتح تبويب «مساحات خاصة» واضغط «عندك رابط دعوة؟» والصق هذا الرابط</p>
+  <p><a class="mail" href="https://apps.apple.com/app/id6821022797">حمّل وتيرة من App Store</a></p>
+  <p>لما تحمّله، افتح تبويب «مساحات خاصة» واضغط «عندك رابط دعوة؟» والصق هذا الرابط</p>
   <p id="codebox">الكود: <span id="code" dir="ltr"></span> <button class="mail" id="copy" type="button" data-done="انسخ الرابط ✓">انسخ الرابط</button></p>
   <p lang="en" dir="ltr">You have an invite to a shared space on Watira. Open it in the app, or once you have Watira, paste this link under Spaces.</p>
 </main>
